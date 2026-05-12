@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://lgtdme4tg6sh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eph2f"]
+size = Vector2(148, 121)
+
+[node name="SquarePlatform" type="Node2D" unique_id=788272926]
+
+[node name="SquareBody" type="StaticBody2D" parent="." unique_id=520429367]
+
+[node name="SquareCollision" type="CollisionShape2D" parent="SquareBody" unique_id=1489138258]
+position = Vector2(74, 60.5)
+shape = SubResource("RectangleShape2D_eph2f")

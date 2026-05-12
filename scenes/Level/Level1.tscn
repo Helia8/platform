@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://y4l43eaevqbb" path="res://scenes/WinFlag.tscn" id="5_8x4nf"]
 [ext_resource type="PackedScene" uid="uid://dillxlklk13ia" path="res://scenes/Ennemies/BasicEnnemy.tscn" id="6_7s6sr"]
 [ext_resource type="PackedScene" uid="uid://bfg8snu3sq651" path="res://scenes/Platforms/BasicPlatform.tscn" id="7_4esi6"]
+[ext_resource type="PackedScene" uid="uid://lgtdme4tg6sh" path="res://scenes/Platforms/SquarePlatform.tscn" id="8_s5y6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0hel"]
 size = Vector2(8234, 354)
@@ -31,6 +32,7 @@ shape = SubResource("RectangleShape2D_p0hel")
 position = Vector2(181, 374)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=578441604]
+zoom = Vector2(0.6, 0.6)
 
 [node name="VoidHazard" parent="." unique_id=937687863 instance=ExtResource("3_p0hel")]
 position = Vector2(-3709, 730)
@@ -39,13 +41,82 @@ position = Vector2(-3709, 730)
 position = Vector2(4880, 725)
 
 [node name="SpikeHazard" parent="." unique_id=1085807066 instance=ExtResource("4_8mqkg")]
-position = Vector2(1098, 443)
+position = Vector2(1098, 455)
 
 [node name="WinFlag" parent="." unique_id=1563577584 instance=ExtResource("5_8x4nf")]
-position = Vector2(3751, 167)
+position = Vector2(5754, 128)
 
 [node name="BasicEnnemy" parent="." unique_id=775499948 instance=ExtResource("6_7s6sr")]
-position = Vector2(2421, 347)
+position = Vector2(3311, 345)
 
 [node name="BasicPlatform" parent="." unique_id=162337804 instance=ExtResource("7_4esi6")]
 position = Vector2(543, 247)
+
+[node name="SpikeHazard2" parent="." unique_id=1820497247 instance=ExtResource("4_8mqkg")]
+position = Vector2(1355, 455)
+
+[node name="SpikeHazard3" parent="." unique_id=1056106776 instance=ExtResource("4_8mqkg")]
+position = Vector2(1223, 456)
+
+[node name="SpikeHazard4" parent="." unique_id=560954911 instance=ExtResource("4_8mqkg")]
+position = Vector2(1469, 454)
+
+[node name="BasicPlatform2" parent="." unique_id=993820697 instance=ExtResource("7_4esi6")]
+position = Vector2(1537, 267)
+
+[node name="SquarePlatform" parent="." unique_id=788272926 instance=ExtResource("8_s5y6n")]
+position = Vector2(2333, 361)
+
+[node name="SquarePlatform2" parent="." unique_id=519429610 instance=ExtResource("8_s5y6n")]
+position = Vector2(4329, 360)
+
+[node name="BasicPlatform3" parent="." unique_id=899758877 instance=ExtResource("7_4esi6")]
+position = Vector2(5090, 465)
+
+[node name="BasicPlatform4" parent="." unique_id=1203475493 instance=ExtResource("7_4esi6")]
+position = Vector2(5597, 465)
+
+[node name="SquarePlatform3" parent="." unique_id=1629069388 instance=ExtResource("8_s5y6n")]
+position = Vector2(2781, 136)
+
+[node name="SquarePlatform4" parent="." unique_id=443861627 instance=ExtResource("8_s5y6n")]
+position = Vector2(3269, -24)
+
+[node name="BasicPlatform5" parent="." unique_id=1860435198 instance=ExtResource("7_4esi6")]
+position = Vector2(3619, 63)
+
+[node name="SpikeHazard5" parent="." unique_id=464142309 instance=ExtResource("4_8mqkg")]
+position = Vector2(3845, 8)
+
+[node name="VoidHazard3" parent="." unique_id=810062654 instance=ExtResource("3_p0hel")]
+position = Vector2(5227, 725)
+
+[node name="VoidHazard4" parent="." unique_id=316400328 instance=ExtResource("3_p0hel")]
+position = Vector2(5574, 725)
+
+[node name="VoidHazard5" parent="." unique_id=1768109156 instance=ExtResource("3_p0hel")]
+position = Vector2(5921, 725)
+
+[node name="VoidHazard6" parent="." unique_id=112090091 instance=ExtResource("3_p0hel")]
+position = Vector2(6268, 725)
+
+[node name="VoidHazard7" parent="." unique_id=773411420 instance=ExtResource("3_p0hel")]
+position = Vector2(6615, 725)
+
+[node name="VoidHazard8" parent="." unique_id=191426051 instance=ExtResource("3_p0hel")]
+position = Vector2(6962, 725)
+
+[node name="VoidHazard9" parent="." unique_id=268347520 instance=ExtResource("3_p0hel")]
+position = Vector2(7309, 725)
+
+[node name="SquarePlatform5" parent="." unique_id=2127685572 instance=ExtResource("8_s5y6n")]
+position = Vector2(-565, 384)
+
+[node name="SquarePlatform6" parent="." unique_id=667562785 instance=ExtResource("8_s5y6n")]
+position = Vector2(-565, 263)
+
+[node name="SquarePlatform7" parent="." unique_id=1915454349 instance=ExtResource("8_s5y6n")]
+position = Vector2(-565, 142)
+
+[node name="SquarePlatform8" parent="." unique_id=220346923 instance=ExtResource("8_s5y6n")]
+position = Vector2(-565, 21)
