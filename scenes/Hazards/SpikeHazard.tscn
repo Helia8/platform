@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bmudjookqyrr3"]
+
+[ext_resource type="Script" uid="uid://bfgwjhjhcug3w" path="res://src/Hazards/SpikeHazard.gd" id="1_y80ho"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2kqd3"]
+radius = 74.0
+height = 256.0
+
+[node name="SpikeHazard" type="Node2D" unique_id=1085807066]
+script = ExtResource("1_y80ho")
+
+[node name="SpikeArea" type="Area2D" parent="." unique_id=108006964]
+
+[node name="SpikeCollision" type="CollisionShape2D" parent="SpikeArea" unique_id=142858861]
+shape = SubResource("CapsuleShape2D_2kqd3")
+
+[connection signal="body_entered" from="SpikeArea" to="." method="_on_spike_area_body_entered"]
