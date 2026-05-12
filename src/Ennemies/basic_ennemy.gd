@@ -32,8 +32,10 @@ func _physics_process(delta: float) -> void:
 		patrol_wander()
 	if (dir == 0):
 		velocity.x = 100
+		anim.flip_h = false
 	else:
 		velocity.x = -100
+		anim.flip_h = true
 	move_and_slide()
 	_update_animation()
 		
