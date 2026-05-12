@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://buwb7vb22lv05"]
+[gd_scene format=3 uid="uid://bmudjookqyrr3"]
 
-[ext_resource type="Script" path="res://src/Hazards/SpikeHazard.gd" id="1_y80ho"]
+[ext_resource type="Script" uid="uid://bfgwjhjhcug3w" path="res://src/Hazards/SpikeHazard.gd" id="1_y80ho"]
 [ext_resource type="Texture2D" uid="uid://budo17u17mu5d" path="res://assets/spike.png" id="2_q7hnq"]
 
 [node name="SpikeHazard" type="Node2D" unique_id=1085807066]
