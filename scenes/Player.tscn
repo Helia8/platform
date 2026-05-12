@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cryitcir1di0" path="res://assets/anims/playerwalk2.png" id="4_70d11"]
 [ext_resource type="Texture2D" uid="uid://dmp57sf0eqsks" path="res://assets/anims/playeridle1.png" id="4_khinc"]
 [ext_resource type="Texture2D" uid="uid://dnvqroobbds82" path="res://assets/anims/playerwalk3.png" id="5_cw2d6"]
+[ext_resource type="Texture2D" uid="uid://otvguttfogsf" path="res://assets/anims/playerjump0.png" id="5_khinc"]
+[ext_resource type="Texture2D" uid="uid://bg25h23p3mog2" path="res://assets/anims/playerjump1.png" id="6_bruh7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5q5h1"]
 size = Vector2(110.5, 215)
@@ -22,6 +24,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("5_khinc")
+}, {
+"duration": 1.5,
+"texture": ExtResource("6_bruh7")
+}],
+"loop": true,
+"name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -56,4 +69,5 @@ shape = SubResource("RectangleShape2D_5q5h1")
 [node name="PlayerAnim" type="AnimatedSprite2D" parent="." unique_id=1195486849]
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_khinc")
-animation = &"idle"
+animation = &"jump"
+frame_progress = 0.014093387
