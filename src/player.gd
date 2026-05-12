@@ -27,6 +27,10 @@ func _update_animation() -> void:
 	if not is_on_floor():
 		playerSprite.hide()
 		anim.play("jump")
+		if (velocity.y < 0):
+			anim.play("jump_rising")
+		else:
+			anim.play("jump_falling")
 	elif velocity.x != 0:
 		playerSprite.hide()
 		anim.play("walk")
