@@ -1,13 +1,52 @@
 [gd_scene format=3 uid="uid://dillxlklk13ia"]
 
 [ext_resource type="Script" uid="uid://c5hh4sj4i15iv" path="res://src/Ennemies/basic_ennemy.gd" id="1_ud4je"]
+[ext_resource type="Texture2D" uid="uid://b3ts2hu1vofjw" path="res://assets/anims/enemies/enemy_ball1.png" id="2_06wfx"]
+[ext_resource type="Texture2D" uid="uid://chjvhong35hxk" path="res://assets/anims/enemies/enemy_ball2.png" id="3_eo7p3"]
+[ext_resource type="Texture2D" uid="uid://dwx4ch3wgg16c" path="res://assets/anims/enemies/enemy_ball3.png" id="4_ckgsn"]
+[ext_resource type="Texture2D" uid="uid://bukbrfbbhr2bt" path="res://assets/anims/enemies/enemy_ball4.png" id="5_2x6xn"]
+[ext_resource type="Texture2D" uid="uid://ki3o2sob4s3c" path="res://assets/anims/enemies/enemy_ball5.png" id="6_xylyd"]
+[ext_resource type="Texture2D" uid="uid://bq2bj6cmfre4s" path="res://assets/anims/enemies/enemy_ball6.png" id="7_i6ayt"]
+[ext_resource type="Texture2D" uid="uid://sk44wtnnmsfi" path="res://assets/anims/enemies/enemy_ball7.png" id="8_pw5n2"]
+[ext_resource type="Texture2D" uid="uid://fxgff0k1tgws" path="res://assets/anims/enemies/enemy_ball8.png" id="9_mcof8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ud4je"]
-radius = 130.09612
+radius = 143.03146
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_johxw"]
-radius = 122.0
-height = 244.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_4uoob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_06wfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eo7p3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ckgsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2x6xn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xylyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_i6ayt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pw5n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mcof8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_06wfx"]
+radius = 135.0
 
 [node name="BasicEnnemy" type="CharacterBody2D" unique_id=1010090589]
 script = ExtResource("1_ud4je")
@@ -17,7 +56,16 @@ script = ExtResource("1_ud4je")
 [node name="EnnemyHitbox" type="CollisionShape2D" parent="EnnemyArea" unique_id=2006207632]
 shape = SubResource("CircleShape2D_ud4je")
 
+[node name="EnemyBall1" type="Sprite2D" parent="EnnemyArea" unique_id=954801813]
+position = Vector2(-1, 2)
+texture = ExtResource("2_06wfx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnnemyArea" unique_id=1962338253]
+sprite_frames = SubResource("SpriteFrames_4uoob")
+animation = &"walk"
+frame_progress = 0.73899174
+
 [node name="EnnemyCollision" type="CollisionShape2D" parent="." unique_id=2092200608]
-shape = SubResource("CapsuleShape2D_johxw")
+shape = SubResource("CircleShape2D_06wfx")
 
 [connection signal="body_entered" from="EnnemyArea" to="." method="_on_ennemy_area_body_entered"]
