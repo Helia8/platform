@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://pukgko1ty678"]
+
+[ext_resource type="Script" uid="uid://b66m0o73m7he1" path="res://src/Hazards/VoidHazard.gd" id="1_jgbm3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4qcx"]
+size = Vector2(347, 216)
+
+[node name="VoidHazard" type="Node2D" unique_id=937687863]
+script = ExtResource("1_jgbm3")
+
+[node name="VoidArea" type="Area2D" parent="." unique_id=699779909]
+
+[node name="VoidHitbox" type="CollisionShape2D" parent="VoidArea" unique_id=884851184]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_o4qcx")
+
+[connection signal="body_entered" from="VoidArea" to="." method="_on_void_area_body_entered"]
