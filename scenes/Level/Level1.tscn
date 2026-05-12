@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://f467e4uvl4q4" path="res://assets/ground.png" id="1_w0kt7"]
 [ext_resource type="PackedScene" uid="uid://7dgreu68l76s" path="res://scenes/Player.tscn" id="2_h32uy"]
 [ext_resource type="PackedScene" uid="uid://pukgko1ty678" path="res://scenes/Hazards/VoidHazard.tscn" id="3_p0hel"]
-[ext_resource type="PackedScene" uid="uid://bmudjookqyrr3" path="res://scenes/Hazards/SpikeHazard.tscn" id="4_8mqkg"]
+[ext_resource type="PackedScene" uid="uid://buwb7vb22lv05" path="res://scenes/Hazards/SpikeHazard.tscn" id="4_8mqkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0hel"]
 size = Vector2(8234, 354)
@@ -36,4 +36,4 @@ position = Vector2(-3709, 730)
 position = Vector2(4880, 725)
 
 [node name="SpikeHazard" parent="." unique_id=1085807066 instance=ExtResource("4_8mqkg")]
-position = Vector2(1098, 549)
+position = Vector2(1098, 443)

@@ -1,17 +1,17 @@
-[gd_scene format=3 uid="uid://bmudjookqyrr3"]
+[gd_scene format=3 uid="uid://buwb7vb22lv05"]
 
-[ext_resource type="Script" uid="uid://bfgwjhjhcug3w" path="res://src/Hazards/SpikeHazard.gd" id="1_y80ho"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2kqd3"]
-radius = 74.0
-height = 256.0
+[ext_resource type="Script" path="res://src/Hazards/SpikeHazard.gd" id="1_y80ho"]
+[ext_resource type="Texture2D" uid="uid://budo17u17mu5d" path="res://assets/spike.png" id="2_q7hnq"]
 
 [node name="SpikeHazard" type="Node2D" unique_id=1085807066]
 script = ExtResource("1_y80ho")
 
 [node name="SpikeArea" type="Area2D" parent="." unique_id=108006964]
 
-[node name="SpikeCollision" type="CollisionShape2D" parent="SpikeArea" unique_id=142858861]
-shape = SubResource("CapsuleShape2D_2kqd3")
+[node name="Spike" type="Sprite2D" parent="SpikeArea" unique_id=1543230380]
+texture = ExtResource("2_q7hnq")
+
+[node name="SpikeCollision" type="CollisionPolygon2D" parent="SpikeArea" unique_id=119277158]
+polygon = PackedVector2Array(7, -34, -43, 39, 44, 39)
 
 [connection signal="body_entered" from="SpikeArea" to="." method="_on_spike_area_body_entered"]
