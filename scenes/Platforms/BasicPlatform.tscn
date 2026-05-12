@@ -14,6 +14,6 @@ position = Vector2(280, 87.5)
 position = Vector2(-5, -7.5)
 shape = SubResource("RectangleShape2D_2hffl")
 
-[node name="Platoform" type="Sprite2D" parent="." unique_id=359487463]
+[node name="Platform" type="Sprite2D" parent="." unique_id=359487463]
 position = Vector2(277, 80)
 texture = ExtResource("1_j157d")
