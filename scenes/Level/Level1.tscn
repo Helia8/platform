@@ -24,3 +24,5 @@ shape = SubResource("RectangleShape2D_p0hel")
 
 [node name="Player" parent="." unique_id=780849214 instance=ExtResource("2_h32uy")]
 position = Vector2(581, 344)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=578441604]
