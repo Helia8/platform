@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-@export var hp = 1
+@export var hp: int = 1
 
-@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var anim: AnimatedSprite2D = $PlayerAnim
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -24,9 +24,6 @@ func _physics_process(delta: float) -> void:
 	_update_animation()
 
 func _update_animation() -> void:
-	if velocity.x != 0:
-		anim.play("walk")
-	return;
 	if not is_on_floor():
 		anim.play("jump")
 	elif velocity.x != 0:
