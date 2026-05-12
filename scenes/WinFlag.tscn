@@ -1,9 +1,29 @@
-[gd_scene format=3 uid="uid://y4l43eaevqbb"]
+[gd_scene format=3 uid="uid://e0qg8ljkihcb"]
 
 [ext_resource type="Script" uid="uid://b3uw4cf1lu7rv" path="res://src/win_flag.gd" id="1_aedk0"]
+[ext_resource type="Texture2D" uid="uid://dcoqjxr2pillu" path="res://assets/anims/obj/win_flag1.png" id="2_an17u"]
+[ext_resource type="Texture2D" uid="uid://w1idx5wbomyd" path="res://assets/anims/obj/win_flag2.png" id="3_1acmh"]
+[ext_resource type="Texture2D" uid="uid://bqcw8n76n4kl5" path="res://assets/anims/obj/win_flag3.png" id="4_rdu75"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45lnh"]
 size = Vector2(350, 2005)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k30lu"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("2_an17u")
+}, {
+"duration": 1.5,
+"texture": ExtResource("3_1acmh")
+}, {
+"duration": 1.5,
+"texture": ExtResource("4_rdu75")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="WinFlag" type="Node2D" unique_id=1563577584]
 script = ExtResource("1_aedk0")
@@ -13,5 +33,11 @@ script = ExtResource("1_aedk0")
 [node name="WinCollision" type="CollisionShape2D" parent="WinArea" unique_id=107922015]
 position = Vector2(165, -676.5)
 shape = SubResource("RectangleShape2D_45lnh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WinArea" unique_id=2081520585]
+position = Vector2(-44, 92)
+sprite_frames = SubResource("SpriteFrames_k30lu")
+animation = &"idle"
+frame_progress = 0.64776325
 
 [connection signal="body_entered" from="WinArea" to="." method="_on_area_2d_body_entered"]
