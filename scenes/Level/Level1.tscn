@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://f467e4uvl4q4" path="res://assets/ground.png" id="1_w0kt7"]
 [ext_resource type="PackedScene" uid="uid://7dgreu68l76s" path="res://scenes/Player.tscn" id="2_h32uy"]
+[ext_resource type="PackedScene" uid="uid://pukgko1ty678" path="res://scenes/Hazards/VoidHazard.tscn" id="3_p0hel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0hel"]
 size = Vector2(8234, 354)
@@ -26,3 +27,9 @@ shape = SubResource("RectangleShape2D_p0hel")
 position = Vector2(581, 344)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=578441604]
+
+[node name="VoidHazard" parent="." unique_id=937687863 instance=ExtResource("3_p0hel")]
+position = Vector2(-3709, 730)
+
+[node name="VoidHazard2" parent="." unique_id=2104149160 instance=ExtResource("3_p0hel")]
+position = Vector2(4880, 725)
