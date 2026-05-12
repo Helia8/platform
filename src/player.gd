@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 400.0
 const JUMP_VELOCITY = -700.0
 @export var hp: int = 1
-
+@onready var winScreen: Node2D = $WinScreen
 @onready var anim: AnimatedSprite2D = $PlayerAnim
 @onready var playerSprite: Sprite2D = $Player
 func _physics_process(delta: float) -> void:
@@ -43,3 +43,8 @@ func _process(delta: float) -> void:
 func hit() -> void:
 	hp -= 1
 	print("Player hit!")
+
+func win() -> void:
+	winScreen.visible = true
+	winScreen.start()
+	

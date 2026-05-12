@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://7dgreu68l76s"]
 
 [ext_resource type="Script" uid="uid://2u28t715n00v" path="res://src/player.gd" id="1_v6fml"]
+[ext_resource type="PackedScene" uid="uid://cmf6182yksis4" path="res://scenes/WinScreen.tscn" id="2_p7iby"]
 [ext_resource type="Texture2D" uid="uid://d6v1bxxog2t8" path="res://assets/player.png" id="3_3li8b"]
 [ext_resource type="Texture2D" uid="uid://s1ta3agt38mk" path="res://assets/anims/player/playeridle0.png" id="3_cw2d6"]
 [ext_resource type="Texture2D" uid="uid://ja85tykkadqj" path="res://assets/anims/player/playerwalk1.png" id="3_qu4a1"]
@@ -83,6 +84,11 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=1195795649 groups=["player"]]
 script = ExtResource("1_v6fml")
+
+[node name="WinScreen" parent="." unique_id=505483427 instance=ExtResource("2_p7iby")]
+visible = false
+z_index = 10
+position = Vector2(16, -67)
 
 [node name="Player" type="Sprite2D" parent="." unique_id=345430564]
 position = Vector2(2, -14)
