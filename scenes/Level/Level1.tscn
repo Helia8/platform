@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://pukgko1ty678" path="res://scenes/Hazards/VoidHazard.tscn" id="3_p0hel"]
 [ext_resource type="PackedScene" uid="uid://bmudjookqyrr3" path="res://scenes/Hazards/SpikeHazard.tscn" id="4_8mqkg"]
 [ext_resource type="PackedScene" uid="uid://y4l43eaevqbb" path="res://scenes/WinFlag.tscn" id="5_8x4nf"]
+[ext_resource type="PackedScene" uid="uid://dillxlklk13ia" path="res://scenes/Ennemies/BasicEnnemy.tscn" id="6_7s6sr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0hel"]
 size = Vector2(8234, 354)
@@ -41,3 +42,6 @@ position = Vector2(1098, 443)
 
 [node name="WinFlag" parent="." unique_id=1563577584 instance=ExtResource("5_8x4nf")]
 position = Vector2(3751, 167)
+
+[node name="BasicEnnemy" parent="." unique_id=775499948 instance=ExtResource("6_7s6sr")]
+position = Vector2(939, 411)

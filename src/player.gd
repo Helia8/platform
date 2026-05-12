@@ -26,7 +26,6 @@ func _physics_process(delta: float) -> void:
 func _update_animation() -> void:
 	if not is_on_floor():
 		playerSprite.hide()
-		anim.play("jump")
 		if (velocity.y < 0):
 			anim.play("jump_rising")
 		else:

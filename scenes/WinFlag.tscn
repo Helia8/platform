@@ -8,10 +8,10 @@ size = Vector2(350, 2005)
 [node name="WinFlag" type="Node2D" unique_id=1563577584]
 script = ExtResource("1_aedk0")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1897347660]
+[node name="WinArea" type="Area2D" parent="." unique_id=1897347660]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=107922015]
+[node name="WinCollision" type="CollisionShape2D" parent="WinArea" unique_id=107922015]
 position = Vector2(165, -676.5)
 shape = SubResource("RectangleShape2D_45lnh")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="WinArea" to="." method="_on_area_2d_body_entered"]

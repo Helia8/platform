@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dillxlklk13ia"]
+
+[ext_resource type="Script" uid="uid://c5hh4sj4i15iv" path="res://src/Ennemies/basic_ennemy.gd" id="1_ud4je"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ud4je"]
+radius = 130.09612
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_johxw"]
+radius = 122.0
+height = 244.0
+
+[node name="BasicEnnemy" type="Node2D" unique_id=775499948]
+script = ExtResource("1_ud4je")
+
+[node name="EnnemyBody" type="CharacterBody2D" parent="." unique_id=1010090589]
+
+[node name="EnnemyArea" type="Area2D" parent="EnnemyBody" unique_id=1448921124]
+
+[node name="EnnemyHitbox" type="CollisionShape2D" parent="EnnemyBody/EnnemyArea" unique_id=2006207632]
+shape = SubResource("CircleShape2D_ud4je")
+
+[node name="EnnemyCollision" type="CollisionShape2D" parent="EnnemyBody" unique_id=2092200608]
+shape = SubResource("CapsuleShape2D_johxw")
+
+[connection signal="body_entered" from="EnnemyBody/EnnemyArea" to="." method="_on_ennemy_area_body_entered"]
