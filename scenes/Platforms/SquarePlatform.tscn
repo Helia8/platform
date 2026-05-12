@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://lgtdme4tg6sh"]
 
+[ext_resource type="Texture2D" uid="uid://djsp4xco55qmx" path="res://assets/square.png" id="1_2h23h"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eph2f"]
 size = Vector2(148, 121)
 
@@ -10,3 +12,7 @@ size = Vector2(148, 121)
 [node name="SquareCollision" type="CollisionShape2D" parent="SquareBody" unique_id=1489138258]
 position = Vector2(74, 60.5)
 shape = SubResource("RectangleShape2D_eph2f")
+
+[node name="Square" type="Sprite2D" parent="SquareBody" unique_id=1001167906]
+position = Vector2(74, 61)
+texture = ExtResource("1_2h23h")
