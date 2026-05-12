@@ -16,9 +16,12 @@ func _ready():
 func patrol_wander():
 	wander_timer = 0
 	dir = (dir + 1) % 2
+	
 func random_wander():
 		wander_timer = 0
 		dir = randi() % 2
+		
+		
 func _physics_process(delta: float) -> void:
 	wander_timer += delta
 	if (wander_timer > wander_time):

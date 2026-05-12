@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bmudjookqyrr3" path="res://scenes/Hazards/SpikeHazard.tscn" id="4_8mqkg"]
 [ext_resource type="PackedScene" uid="uid://y4l43eaevqbb" path="res://scenes/WinFlag.tscn" id="5_8x4nf"]
 [ext_resource type="PackedScene" uid="uid://dillxlklk13ia" path="res://scenes/Ennemies/BasicEnnemy.tscn" id="6_7s6sr"]
+[ext_resource type="PackedScene" uid="uid://bfg8snu3sq651" path="res://scenes/Platforms/BasicPlatform.tscn" id="7_4esi6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0hel"]
 size = Vector2(8234, 354)
@@ -27,7 +28,7 @@ position = Vector2(0, 102)
 shape = SubResource("RectangleShape2D_p0hel")
 
 [node name="Player" parent="." unique_id=780849214 instance=ExtResource("2_h32uy")]
-position = Vector2(581, 344)
+position = Vector2(181, 374)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=578441604]
 
@@ -44,4 +45,7 @@ position = Vector2(1098, 443)
 position = Vector2(3751, 167)
 
 [node name="BasicEnnemy" parent="." unique_id=775499948 instance=ExtResource("6_7s6sr")]
-position = Vector2(861, 340)
+position = Vector2(2421, 347)
+
+[node name="BasicPlatform" parent="." unique_id=162337804 instance=ExtResource("7_4esi6")]
+position = Vector2(543, 247)
