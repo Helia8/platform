@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -400.0
 @export var hp: int = 1
 
 @onready var anim: AnimatedSprite2D = $PlayerAnim
-@onready var sprite: Sprite2D = $Player
+@onready var playerSprite: Sprite2D = $Player
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -25,10 +25,10 @@ func _physics_process(delta: float) -> void:
 
 func _update_animation() -> void:
 	if not is_on_floor():
-		sprite.hide()
+		playerSprite.hide()
 		anim.play("jump")
 	elif velocity.x != 0:
-		sprite.hide()
+		playerSprite.hide()
 		anim.play("walk")
 	else:
 		anim.play("idle")
