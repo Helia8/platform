@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var wander_time: float = 3.0
 var wander_timer = 0
 var dir = 1
+@onready var anim: AnimatedSprite2D = $EnnemyArea/EnemyAnim
 
 func _on_ennemy_area_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("player")):
@@ -16,6 +17,9 @@ func _ready():
 func patrol_wander():
 	wander_timer = 0
 	dir = (dir + 1) % 2
+	
+func _update_animation() -> void:
+	anim.play("walk")
 	
 func random_wander():
 		wander_timer = 0
@@ -31,6 +35,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = -100
 	move_and_slide()
+	_update_animation()
 		
 	
 	
