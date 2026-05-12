@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://7dgreu68l76s" path="res://scenes/Player.tscn" id="2_h32uy"]
 [ext_resource type="PackedScene" uid="uid://pukgko1ty678" path="res://scenes/Hazards/VoidHazard.tscn" id="3_p0hel"]
 [ext_resource type="PackedScene" uid="uid://bmudjookqyrr3" path="res://scenes/Hazards/SpikeHazard.tscn" id="4_8mqkg"]
-[ext_resource type="PackedScene" path="res://scenes/WinFlag.tscn" id="5_8x4nf"]
+[ext_resource type="PackedScene" uid="uid://y4l43eaevqbb" path="res://scenes/WinFlag.tscn" id="5_8x4nf"]
 [ext_resource type="PackedScene" uid="uid://dillxlklk13ia" path="res://scenes/Ennemies/BasicEnnemy.tscn" id="6_7s6sr"]
 [ext_resource type="PackedScene" uid="uid://bfg8snu3sq651" path="res://scenes/Platforms/BasicPlatform.tscn" id="7_4esi6"]
 [ext_resource type="PackedScene" uid="uid://lgtdme4tg6sh" path="res://scenes/Platforms/SquarePlatform.tscn" id="8_s5y6n"]
@@ -77,16 +77,16 @@ position = Vector2(5090, 465)
 position = Vector2(5597, 465)
 
 [node name="SquarePlatform3" parent="." unique_id=1629069388 instance=ExtResource("8_s5y6n")]
-position = Vector2(2781, 136)
+position = Vector2(2721, 119)
 
 [node name="SquarePlatform4" parent="." unique_id=443861627 instance=ExtResource("8_s5y6n")]
-position = Vector2(3269, -24)
+position = Vector2(3269, -48)
 
 [node name="BasicPlatform5" parent="." unique_id=1860435198 instance=ExtResource("7_4esi6")]
-position = Vector2(3619, 63)
+position = Vector2(3711, 124)
 
 [node name="SpikeHazard5" parent="." unique_id=464142309 instance=ExtResource("4_8mqkg")]
-position = Vector2(3845, 24)
+position = Vector2(3974, 77)
 
 [node name="VoidHazard3" parent="." unique_id=810062654 instance=ExtResource("3_p0hel")]
 position = Vector2(5227, 725)

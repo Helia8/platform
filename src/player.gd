@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -700.0
-@export var GRAVITY_STRENGTH: float = 2.0
 @export var hp: int = 1
 
 @onready var anim: AnimatedSprite2D = $PlayerAnim
