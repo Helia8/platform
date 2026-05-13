@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://cymfehvegx6fg"]
+[gd_scene format=3 uid="uid://cgille8bku4ea"]
 
 [ext_resource type="Script" uid="uid://dwvxqjs5w3a1u" path="res://src/Platforms/moving_platform_with_trigger.gd" id="1_qckev"]
+[ext_resource type="Texture2D" uid="uid://dlm7ksv05yxor" path="res://assets/moving_platform.png" id="2_vy0lw"]
 
 [sub_resource type="Curve2D" id="Curve2D_en3ub"]
 resource_local_to_scene = true
@@ -10,10 +11,10 @@ _data = {
 point_count = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_en3ub"]
-size = Vector2(389, 102)
+size = Vector2(281.32925, 59.72841)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hnjv"]
-size = Vector2(366, 8.771591)
+size = Vector2(240, 8.771591)
 
 [node name="MovingPlatformWithTrigger" type="Node2D" unique_id=633624828]
 script = ExtResource("1_qckev")
@@ -36,14 +37,19 @@ update_scale = false
 position = Vector2(285.17075, 21.271591)
 
 [node name="PlatformCollision" type="CollisionShape2D" parent="PlatformBody" unique_id=1245673624]
-position = Vector2(195, 51)
+position = Vector2(141.16464, 29.864204)
 shape = SubResource("RectangleShape2D_en3ub")
 
 [node name="TriggerArea" type="Area2D" parent="PlatformBody" unique_id=1117030317]
 
 [node name="TriggerCollision" type="CollisionShape2D" parent="PlatformBody/TriggerArea" unique_id=248386789]
-position = Vector2(190, -3.8857956)
+position = Vector2(139.82925, -3.8857956)
 shape = SubResource("RectangleShape2D_6hnjv")
+
+[node name="MovingPlatform" type="Sprite2D" parent="PlatformBody" unique_id=1757147862]
+position = Vector2(141.45425, 29.72841)
+scale = Vector2(1.9274192, 1.0538461)
+texture = ExtResource("2_vy0lw")
 
 [connection signal="body_entered" from="PlatformBody/TriggerArea" to="." method="_on_trigger_area_body_entered"]
 [connection signal="body_exited" from="PlatformBody/TriggerArea" to="." method="_on_trigger_area_body_exited"]

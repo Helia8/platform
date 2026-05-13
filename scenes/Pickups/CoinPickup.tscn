@@ -1,9 +1,33 @@
 [gd_scene format=3 uid="uid://c65r76r3p4o1"]
 
 [ext_resource type="Script" uid="uid://c73gmgd2vla27" path="res://src/Pickups/coin_pickup.gd" id="1_1b5st"]
+[ext_resource type="Texture2D" uid="uid://d1evko323eq04" path="res://assets/anims/obj/coin1.png" id="2_3cifr"]
+[ext_resource type="Texture2D" uid="uid://n4h01op5uq3c" path="res://assets/anims/obj/coin2.png" id="3_fajto"]
+[ext_resource type="Texture2D" uid="uid://ddpek5aipga6b" path="res://assets/anims/obj/coin3.png" id="4_wsqdb"]
+[ext_resource type="Texture2D" uid="uid://bsnvi6dob2vnr" path="res://assets/anims/obj/coin4.png" id="5_a43fy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_goyns"]
 radius = 73.171036
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m1t1i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3cifr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fajto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wsqdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a43fy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="CoinPickup" type="Node2D" unique_id=488724526]
 script = ExtResource("1_1b5st")
@@ -12,5 +36,11 @@ script = ExtResource("1_1b5st")
 
 [node name="PickupCollision" type="CollisionShape2D" parent="CoinArea" unique_id=191844623]
 shape = SubResource("CircleShape2D_goyns")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CoinArea" unique_id=437787391]
+sprite_frames = SubResource("SpriteFrames_m1t1i")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.3172198
 
 [connection signal="body_entered" from="CoinArea" to="." method="_on_coin_area_body_entered"]
