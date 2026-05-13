@@ -4,6 +4,7 @@ const SPEED = 400.0
 const JUMP_VELOCITY = -700.0
 @export var hp: int = 1
 @onready var winScreen: Node2D = $WinScreen
+@onready var deathScreen: Node2D = $DeathScreen
 @onready var anim: AnimatedSprite2D = $PlayerAnim
 @onready var playerSprite: Sprite2D = $Player
 func _physics_process(delta: float) -> void:
@@ -38,11 +39,16 @@ func _update_animation() -> void:
 
 func _process(delta: float) -> void:
 	if hp <= 0:
+		return
 		queue_free()
 
 func hit() -> void:
 	hp -= 1
 	print("Player hit!")
+	if (hp <= 0):
+		deathScreen.visible = true
+		deathScreen.start()
+		
 
 func win() -> void:
 	winScreen.visible = true

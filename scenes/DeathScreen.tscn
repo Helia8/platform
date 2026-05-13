@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dr43vh3jagpvv"]
+
+[ext_resource type="Script" uid="uid://c1qd0sigwmt3b" path="res://src/death_screen.gd" id="1_0r1s6"]
+[ext_resource type="Texture2D" uid="uid://dlqcx3karsdd8" path="res://assets/anims/ui/death_screen1.png" id="1_5034k"]
+[ext_resource type="Texture2D" uid="uid://ck4oty47u8ug4" path="res://assets/anims/ui/death_screen2.png" id="2_0r1s6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rg777"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5034k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0r1s6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DeathScreen" type="Node2D" unique_id=2039767255]
+script = ExtResource("1_0r1s6")
+
+[node name="DeathScreenAnimation" type="AnimatedSprite2D" parent="." unique_id=935090577]
+sprite_frames = SubResource("SpriteFrames_rg777")

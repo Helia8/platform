@@ -38,6 +38,7 @@ shape = SubResource("RectangleShape2D_45lnh")
 position = Vector2(-44, 92)
 sprite_frames = SubResource("SpriteFrames_k30lu")
 animation = &"idle"
+autoplay = "idle"
 frame_progress = 0.64776325
 
 [connection signal="body_entered" from="WinArea" to="." method="_on_area_2d_body_entered"]

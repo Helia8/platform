@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cmf6182yksis4"]
 
 [ext_resource type="Script" uid="uid://dhcrheaex0d1o" path="res://src/win_screen.gd" id="1_8cwvy"]
-[ext_resource type="Texture2D" uid="uid://ucfanscbkhwo" path="res://assets/anims/win_screen/win_screen1.png" id="1_tad7g"]
-[ext_resource type="Texture2D" uid="uid://d8m34fsc54hn" path="res://assets/anims/win_screen/win_screen2.png" id="2_8cwvy"]
-[ext_resource type="Texture2D" uid="uid://qytx1m61ujft" path="res://assets/anims/win_screen/win_screen3.png" id="3_fpwgu"]
-[ext_resource type="Texture2D" uid="uid://btq64gc4cm00d" path="res://assets/anims/win_screen/win_screen4.png" id="4_g81hb"]
-[ext_resource type="Texture2D" uid="uid://c3rn1pqn7dnkj" path="res://assets/anims/win_screen/win_screen5.png" id="5_ava1o"]
-[ext_resource type="Texture2D" uid="uid://dul8e5gix4q51" path="res://assets/anims/win_screen/win_screen6.png" id="6_eog5u"]
-[ext_resource type="Texture2D" uid="uid://b3vfi03c5oqp4" path="res://assets/anims/win_screen/win_screen7.png" id="7_s06e1"]
+[ext_resource type="Texture2D" uid="uid://ucfanscbkhwo" path="res://assets/anims/ui/win_screen1.png" id="1_tad7g"]
+[ext_resource type="Texture2D" uid="uid://d8m34fsc54hn" path="res://assets/anims/ui/win_screen2.png" id="2_8cwvy"]
+[ext_resource type="Texture2D" uid="uid://qytx1m61ujft" path="res://assets/anims/ui/win_screen3.png" id="3_fpwgu"]
+[ext_resource type="Texture2D" uid="uid://btq64gc4cm00d" path="res://assets/anims/ui/win_screen4.png" id="4_g81hb"]
+[ext_resource type="Texture2D" uid="uid://c3rn1pqn7dnkj" path="res://assets/anims/ui/win_screen5.png" id="5_ava1o"]
+[ext_resource type="Texture2D" uid="uid://dul8e5gix4q51" path="res://assets/anims/ui/win_screen6.png" id="6_eog5u"]
+[ext_resource type="Texture2D" uid="uid://b3vfi03c5oqp4" path="res://assets/anims/ui/win_screen7.png" id="7_s06e1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s66xi"]
 animations = [{
@@ -42,7 +42,6 @@ animations = [{
 script = ExtResource("1_8cwvy")
 
 [node name="WinScreenAnimation" type="AnimatedSprite2D" parent="." unique_id=1300388141]
-visible = false
 sprite_frames = SubResource("SpriteFrames_s66xi")
 frame = 2
 frame_progress = 0.7013318

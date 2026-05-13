@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://5pbkjcdh8vdx" path="res://assets/anims/player/playerjump_falling2.png" id="8_p7iby"]
 [ext_resource type="Texture2D" uid="uid://li8cutfujf67" path="res://assets/anims/player/playerjump_rising1.png" id="9_0rnld"]
 [ext_resource type="Texture2D" uid="uid://1v6emqtjvyr2" path="res://assets/anims/player/playerjump_rising2.png" id="10_srp4u"]
+[ext_resource type="PackedScene" uid="uid://dr43vh3jagpvv" path="res://scenes/DeathScreen.tscn" id="15_0rnld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5q5h1"]
 size = Vector2(110.5, 215)
@@ -102,3 +103,6 @@ shape = SubResource("RectangleShape2D_5q5h1")
 position = Vector2(-1, -13)
 sprite_frames = SubResource("SpriteFrames_khinc")
 animation = &"walk"
+
+[node name="DeathScreen" parent="." unique_id=2039767255 instance=ExtResource("15_0rnld")]
+visible = false
