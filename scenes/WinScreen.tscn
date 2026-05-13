@@ -13,6 +13,17 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("7_s06e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_eog5u")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_tad7g")
 }, {
 "duration": 1.0,
@@ -34,18 +45,7 @@ animations = [{
 "texture": ExtResource("7_s06e1")
 }],
 "loop": false,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_s06e1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_eog5u")
-}],
-"loop": false,
-"name": &"idle",
+"name": &"start",
 "speed": 5.0
 }]
 
@@ -54,5 +54,4 @@ script = ExtResource("1_8cwvy")
 
 [node name="WinScreenAnimation" type="AnimatedSprite2D" parent="." unique_id=1300388141]
 sprite_frames = SubResource("SpriteFrames_s66xi")
-animation = &"idle"
-frame_progress = 0.67313784
+animation = &"start"
