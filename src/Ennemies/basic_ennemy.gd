@@ -3,8 +3,9 @@ extends CharacterBody2D
 @export var wander_time: float = 3.0
 var wander_timer = 0
 var dir = 1
+var is_dead = false
 @onready var anim: AnimatedSprite2D = $EnnemyArea/EnemyAnim
-
+@onready var hitbox: CollisionShape2D = $EnnemyArea/EnnemyHitbox
 func _on_ennemy_area_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("player")):
 		print("player hit ennemy")
@@ -39,6 +40,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_update_animation()
 		
+func _process(delta: float) -> void :
+	if is_dead && anim.animation_finished:
+		queue_free()
 	
 	
 
@@ -46,5 +50,6 @@ func _physics_process(delta: float) -> void:
 func _on_ennemy_hurtbox_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("player")):
 		body.add_iseconds(1)
-		queue_free()
+		is_dead = true
+		anim.play("death")
 pass # Replace with function body.
