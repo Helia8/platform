@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -700.0
 @onready var anim: AnimatedSprite2D = $PlayerAnim
 @onready var playerSprite: Sprite2D = $Player
 var running = true
+var platVel: Vector2 = Vector2.ZERO
 func _physics_process(delta: float) -> void:
 	if not running:
 		return
@@ -16,15 +17,17 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		velocity.x = platVel.x
 
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
 		anim.flip_h = direction > 0
-	else:
+	elif is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	platVel = get_platform_velocity()
 	_update_animation()
 
 func _update_animation() -> void:

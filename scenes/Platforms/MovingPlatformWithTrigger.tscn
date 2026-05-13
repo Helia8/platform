@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cymfehvegx6fg"]
+
+[ext_resource type="Script" uid="uid://dwvxqjs5w3a1u" path="res://src/Platforms/moving_platform_with_trigger.gd" id="1_qckev"]
+
+[sub_resource type="Curve2D" id="Curve2D_en3ub"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(-30.298122, 10.912084, 30.298122, -10.912084, 253.4851, 7.0905304, -268.98077, 0, 268.98077, 0, 670.22217, 3.6666718, -194.7539, 80.466606, 194.7539, -80.466606, 1303.1108, -64, 0, 0, 0, 0, 1577.7778, -212.33334)
+}
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_en3ub"]
+size = Vector2(389, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hnjv"]
+size = Vector2(366, 8.771591)
+
+[node name="MovingPlatformWithTrigger" type="Node2D" unique_id=633624828]
+script = ExtResource("1_qckev")
+
+[node name="PlatformPath" type="Path2D" parent="." unique_id=1409864760]
+scale = Vector2(1.125, 3)
+curve = SubResource("Curve2D_en3ub")
+
+[node name="PlatformPathFollow" type="PathFollow2D" parent="PlatformPath" unique_id=1845010379]
+position = Vector2(253.4851, 7.0905304)
+rotation = -0.3456946
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlatformPath/PlatformPathFollow" unique_id=167867027]
+remote_path = NodePath("../../../PlatformBody")
+update_rotation = false
+update_scale = false
+
+[node name="PlatformBody" type="AnimatableBody2D" parent="." unique_id=748276631]
+position = Vector2(285.17075, 21.271591)
+
+[node name="PlatformCollision" type="CollisionShape2D" parent="PlatformBody" unique_id=1245673624]
+position = Vector2(195, 51)
+shape = SubResource("RectangleShape2D_en3ub")
+
+[node name="TriggerArea" type="Area2D" parent="PlatformBody" unique_id=1117030317]
+
+[node name="TriggerCollision" type="CollisionShape2D" parent="PlatformBody/TriggerArea" unique_id=248386789]
+position = Vector2(190, -3.8857956)
+shape = SubResource("RectangleShape2D_6hnjv")
+
+[connection signal="body_entered" from="PlatformBody/TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="body_exited" from="PlatformBody/TriggerArea" to="." method="_on_trigger_area_body_exited"]
