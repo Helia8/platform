@@ -20,7 +20,10 @@ func patrol_wander():
 	dir = (dir + 1) % 2
 	
 func _update_animation() -> void:
-	anim.play("walk")
+	if not is_dead:
+		anim.play("walk")
+	else :
+		anim.play("death")
 	
 func random_wander():
 	wander_timer = 0
@@ -28,6 +31,9 @@ func random_wander():
 		
 		
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		_update_animation()
+		return
 	wander_timer += delta
 	if (wander_timer > wander_time):
 		patrol_wander()
@@ -40,9 +46,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_update_animation()
 		
-func _process(delta: float) -> void :
-	if is_dead && anim.animation_finished:
-		pass
+func _process(delta: float) -> void:
+	if is_dead && !anim.is_playing():
+		queue_free()
 	
 	
 
@@ -51,5 +57,5 @@ func _on_ennemy_hurtbox_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("player")):
 		body.add_iseconds(1)
 		is_dead = true
-		anim.play("death")
+		body.make_bounce()
 pass # Replace with function body.

@@ -71,7 +71,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_0isgx")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -120,6 +120,7 @@ script = ExtResource("1_ud4je")
 shape = SubResource("CircleShape2D_ud4je")
 
 [node name="EnemyBall1" type="Sprite2D" parent="EnnemyArea" unique_id=954801813]
+visible = false
 position = Vector2(-1, 2)
 texture = ExtResource("2_06wfx")
 
