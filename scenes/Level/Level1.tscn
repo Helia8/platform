@@ -45,7 +45,7 @@ position = Vector2(4880, 725)
 position = Vector2(1098, 455)
 
 [node name="WinFlag" parent="." unique_id=1563577584 instance=ExtResource("5_8x4nf")]
-position = Vector2(-48, 141)
+position = Vector2(5754, 147)
 
 [node name="BasicEnnemy" parent="." unique_id=775499948 instance=ExtResource("6_7s6sr")]
 position = Vector2(3311, 345)
