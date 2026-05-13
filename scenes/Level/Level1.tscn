@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bfg8snu3sq651" path="res://scenes/Platforms/BasicPlatform.tscn" id="7_4esi6"]
 [ext_resource type="PackedScene" uid="uid://lgtdme4tg6sh" path="res://scenes/Platforms/SquarePlatform.tscn" id="8_s5y6n"]
 [ext_resource type="Script" uid="uid://dwvxqjs5w3a1u" path="res://src/Platforms/moving_platform_with_trigger.gd" id="9_rsq5u"]
+[ext_resource type="PackedScene" uid="uid://c65r76r3p4o1" path="res://scenes/Pickups/CoinPickup.tscn" id="10_a7ub4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0hel"]
 size = Vector2(8234, 354)
@@ -252,6 +253,9 @@ shape = SubResource("RectangleShape2D_en3ub")
 [node name="TriggerCollision" type="CollisionShape2D" parent="MovingPlatform2/PlatformBody/TriggerArea" unique_id=957223010]
 position = Vector2(190, -3.8857956)
 shape = SubResource("RectangleShape2D_6hnjv")
+
+[node name="CoinPickup" parent="." unique_id=488724526 instance=ExtResource("10_a7ub4")]
+position = Vector2(660, 183)
 
 [connection signal="body_entered" from="MovingPlatform/PlatformBody/TriggerArea" to="MovingPlatform" method="_on_trigger_area_body_entered"]
 [connection signal="body_exited" from="MovingPlatform/PlatformBody/TriggerArea" to="MovingPlatform" method="_on_trigger_area_body_exited"]

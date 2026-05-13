@@ -64,3 +64,5 @@ func win() -> void:
 	winScreen.visible = true
 	winScreen.start()
 	
+func pickup_coin():
+	print("picked up coin")

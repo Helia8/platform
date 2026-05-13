@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c65r76r3p4o1"]
+
+[ext_resource type="Script" uid="uid://c73gmgd2vla27" path="res://src/Pickups/coin_pickup.gd" id="1_1b5st"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_goyns"]
+radius = 73.171036
+
+[node name="CoinPickup" type="Node2D" unique_id=488724526]
+script = ExtResource("1_1b5st")
+
+[node name="CoinArea" type="Area2D" parent="." unique_id=937049957]
+
+[node name="PickupCollision" type="CollisionShape2D" parent="CoinArea" unique_id=191844623]
+shape = SubResource("CircleShape2D_goyns")
+
+[connection signal="body_entered" from="CoinArea" to="." method="_on_coin_area_body_entered"]
