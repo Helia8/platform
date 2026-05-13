@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cmf6182yksis4"]
+[gd_scene format=3 uid="uid://ce054n4n4vsxt"]
 
-[ext_resource type="Script" uid="uid://dhcrheaex0d1o" path="res://src/win_screen.gd" id="1_8cwvy"]
+[ext_resource type="Script" path="res://src/win_screen.gd" id="1_8cwvy"]
 [ext_resource type="Texture2D" uid="uid://ucfanscbkhwo" path="res://assets/anims/ui/win_screen1.png" id="1_tad7g"]
 [ext_resource type="Texture2D" uid="uid://d8m34fsc54hn" path="res://assets/anims/ui/win_screen2.png" id="2_8cwvy"]
 [ext_resource type="Texture2D" uid="uid://qytx1m61ujft" path="res://assets/anims/ui/win_screen3.png" id="3_fpwgu"]
@@ -36,6 +36,17 @@ animations = [{
 "loop": false,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_s06e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_eog5u")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }]
 
 [node name="WinScreen" type="Node2D" unique_id=505483427]
@@ -43,5 +54,5 @@ script = ExtResource("1_8cwvy")
 
 [node name="WinScreenAnimation" type="AnimatedSprite2D" parent="." unique_id=1300388141]
 sprite_frames = SubResource("SpriteFrames_s66xi")
-frame = 2
-frame_progress = 0.7013318
+animation = &"idle"
+frame_progress = 0.67313784
