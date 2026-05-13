@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ce054n4n4vsxt"]
 
-[ext_resource type="Script" path="res://src/win_screen.gd" id="1_8cwvy"]
+[ext_resource type="Script" uid="uid://dhcrheaex0d1o" path="res://src/win_screen.gd" id="1_8cwvy"]
 [ext_resource type="Texture2D" uid="uid://ucfanscbkhwo" path="res://assets/anims/ui/win_screen1.png" id="1_tad7g"]
 [ext_resource type="Texture2D" uid="uid://d8m34fsc54hn" path="res://assets/anims/ui/win_screen2.png" id="2_8cwvy"]
 [ext_resource type="Texture2D" uid="uid://qytx1m61ujft" path="res://assets/anims/ui/win_screen3.png" id="3_fpwgu"]
@@ -44,7 +44,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_eog5u")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }]

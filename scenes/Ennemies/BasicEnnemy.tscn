@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://f17wyuygm0de" path="res://assets/anims/enemies/enemy_ball_death13.png" id="15_0isgx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ud4je"]
-radius = 119.0042
+radius = 140.01428
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4uoob"]
 animations = [{
@@ -106,10 +106,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_06wfx"]
-radius = 135.0
+radius = 134.01492
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06wfx"]
-size = Vector2(205, 56)
+size = Vector2(205, 30)
 
 [node name="BasicEnnemy" type="CharacterBody2D" unique_id=1010090589]
 script = ExtResource("1_ud4je")
@@ -135,7 +135,7 @@ shape = SubResource("CircleShape2D_06wfx")
 [node name="EnnemyHurtbox" type="Area2D" parent="." unique_id=1072736950]
 
 [node name="HurtboxCollision" type="CollisionShape2D" parent="EnnemyHurtbox" unique_id=938179199]
-position = Vector2(2.5, -117)
+position = Vector2(2.5, -130)
 shape = SubResource("RectangleShape2D_06wfx")
 
 [connection signal="body_entered" from="EnnemyArea" to="." method="_on_ennemy_area_body_entered"]

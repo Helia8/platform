@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://7dgreu68l76s" path="res://scenes/Player.tscn" id="2_h32uy"]
 [ext_resource type="PackedScene" uid="uid://pukgko1ty678" path="res://scenes/Hazards/VoidHazard.tscn" id="3_p0hel"]
 [ext_resource type="PackedScene" uid="uid://bmudjookqyrr3" path="res://scenes/Hazards/SpikeHazard.tscn" id="4_8mqkg"]
-[ext_resource type="PackedScene" uid="uid://e0qg8ljkihcb" path="res://scenes/WinFlag.tscn" id="5_8x4nf"]
+[ext_resource type="PackedScene" uid="uid://y4l43eaevqbb" path="res://scenes/WinFlag.tscn" id="5_8x4nf"]
 [ext_resource type="PackedScene" uid="uid://dillxlklk13ia" path="res://scenes/Ennemies/BasicEnnemy.tscn" id="6_7s6sr"]
 [ext_resource type="PackedScene" uid="uid://bfg8snu3sq651" path="res://scenes/Platforms/BasicPlatform.tscn" id="7_4esi6"]
 [ext_resource type="PackedScene" uid="uid://lgtdme4tg6sh" path="res://scenes/Platforms/SquarePlatform.tscn" id="8_s5y6n"]
@@ -30,7 +30,7 @@ position = Vector2(0, 102)
 shape = SubResource("RectangleShape2D_p0hel")
 
 [node name="Player" parent="." unique_id=780849214 instance=ExtResource("2_h32uy")]
-position = Vector2(181, 374)
+position = Vector2(212, 375)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=578441604]
 zoom = Vector2(0.6, 0.6)
@@ -45,7 +45,7 @@ position = Vector2(4880, 725)
 position = Vector2(1098, 455)
 
 [node name="WinFlag" parent="." unique_id=1563577584 instance=ExtResource("5_8x4nf")]
-position = Vector2(5754, 147)
+position = Vector2(-48, 141)
 
 [node name="BasicEnnemy" parent="." unique_id=775499948 instance=ExtResource("6_7s6sr")]
 position = Vector2(3311, 345)

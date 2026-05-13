@@ -22,7 +22,7 @@ func patrol_wander():
 func _update_animation() -> void:
 	if not is_dead:
 		anim.play("walk")
-	else :
+	elif anim.animation != "death":
 		anim.play("death")
 	
 func random_wander():
