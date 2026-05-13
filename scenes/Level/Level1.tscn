@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dillxlklk13ia" path="res://scenes/Ennemies/BasicEnnemy.tscn" id="6_7s6sr"]
 [ext_resource type="PackedScene" uid="uid://bfg8snu3sq651" path="res://scenes/Platforms/BasicPlatform.tscn" id="7_4esi6"]
 [ext_resource type="PackedScene" uid="uid://lgtdme4tg6sh" path="res://scenes/Platforms/SquarePlatform.tscn" id="8_s5y6n"]
+[ext_resource type="PackedScene" uid="uid://e0qg8ljkihcb" path="res://scenes/WinFlag.tscn" id="9_rsq5u"]
 [ext_resource type="PackedScene" uid="uid://c65r76r3p4o1" path="res://scenes/Pickups/CoinPickup.tscn" id="10_a7ub4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0hel"]
@@ -171,3 +172,6 @@ position = Vector2(-607, 342)
 
 [node name="SquarePlatform16" parent="." unique_id=1847896861 instance=ExtResource("8_s5y6n")]
 position = Vector2(-327, 356)
+
+[node name="WinFlag" parent="." unique_id=1563577584 instance=ExtResource("9_rsq5u")]
+position = Vector2(5640, 155)
