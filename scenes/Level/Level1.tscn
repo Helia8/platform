@@ -4,35 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://7dgreu68l76s" path="res://scenes/Player.tscn" id="2_h32uy"]
 [ext_resource type="PackedScene" uid="uid://pukgko1ty678" path="res://scenes/Hazards/VoidHazard.tscn" id="3_p0hel"]
 [ext_resource type="PackedScene" uid="uid://bmudjookqyrr3" path="res://scenes/Hazards/SpikeHazard.tscn" id="4_8mqkg"]
-[ext_resource type="PackedScene" uid="uid://y4l43eaevqbb" path="res://scenes/WinFlag.tscn" id="5_8x4nf"]
+[ext_resource type="PackedScene" uid="uid://e0qg8ljkihcb" path="res://scenes/WinFlag.tscn" id="5_8x4nf"]
 [ext_resource type="PackedScene" uid="uid://dillxlklk13ia" path="res://scenes/Ennemies/BasicEnnemy.tscn" id="6_7s6sr"]
 [ext_resource type="PackedScene" uid="uid://bfg8snu3sq651" path="res://scenes/Platforms/BasicPlatform.tscn" id="7_4esi6"]
 [ext_resource type="PackedScene" uid="uid://lgtdme4tg6sh" path="res://scenes/Platforms/SquarePlatform.tscn" id="8_s5y6n"]
-[ext_resource type="Script" uid="uid://dwvxqjs5w3a1u" path="res://src/Platforms/moving_platform_with_trigger.gd" id="9_rsq5u"]
 [ext_resource type="PackedScene" uid="uid://c65r76r3p4o1" path="res://scenes/Pickups/CoinPickup.tscn" id="10_a7ub4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0hel"]
 size = Vector2(8234, 354)
-
-[sub_resource type="Curve2D" id="Curve2D_rsq5u"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(-30.298122, 10.912084, 30.298122, -10.912084, 253.4851, 7.0905304, -268.98077, 0, 268.98077, 0, 670.22217, 3.6666718, -194.7539, 80.466606, 194.7539, -80.466606, 1544.8889, -20.333332, 0, 0, 0, 0, 1973.3333, -99.333336)
-}
-point_count = 4
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_en3ub"]
-size = Vector2(389, 102)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hnjv"]
-size = Vector2(366, 8.771591)
-
-[sub_resource type="Curve2D" id="Curve2D_a7ub4"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(-30.298122, 10.912084, 30.298122, -10.912084, 253.4851, 7.0905304, -268.98077, 0, 268.98077, 0, 670.22217, 3.6666718, -194.7539, 80.466606, 194.7539, -80.466606, 1303.1108, -64, 0, 0, 0, 0, 1954.6665, 219.00002)
-}
-point_count = 4
 
 [node name="Level1" type="Node2D" unique_id=2030989425]
 
@@ -188,82 +167,11 @@ position = Vector2(3602, 12)
 [node name="BasicPlatform10" parent="." unique_id=1686541704 instance=ExtResource("7_4esi6")]
 position = Vector2(6488, -772)
 
-[node name="MovingPlatform" type="Node2D" parent="." unique_id=633624828]
-position = Vector2(775, 90)
-script = ExtResource("9_rsq5u")
-speed = 2.0
-idle_time_midpath = 10.0
-
-[node name="PlatformPath" type="Path2D" parent="MovingPlatform" unique_id=1409864760]
-scale = Vector2(1.125, 3)
-curve = SubResource("Curve2D_rsq5u")
-
-[node name="PlatformPathFollow" type="PathFollow2D" parent="MovingPlatform/PlatformPath" unique_id=1845010379]
-position = Vector2(253.4851, 7.0905304)
-rotation = -0.3456946
-rotates = false
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="MovingPlatform/PlatformPath/PlatformPathFollow" unique_id=167867027]
-remote_path = NodePath("../../../PlatformBody")
-update_rotation = false
-update_scale = false
-
-[node name="PlatformBody" type="AnimatableBody2D" parent="MovingPlatform" unique_id=748276631]
-position = Vector2(285.17078, 21.271591)
-
-[node name="PlatformCollision" type="CollisionShape2D" parent="MovingPlatform/PlatformBody" unique_id=1245673624]
-position = Vector2(195, 51)
-shape = SubResource("RectangleShape2D_en3ub")
-
-[node name="TriggerArea" type="Area2D" parent="MovingPlatform/PlatformBody" unique_id=1117030317]
-
-[node name="TriggerCollision" type="CollisionShape2D" parent="MovingPlatform/PlatformBody/TriggerArea" unique_id=248386789]
-position = Vector2(190, -3.8857956)
-shape = SubResource("RectangleShape2D_6hnjv")
-
-[node name="MovingPlatform2" type="Node2D" parent="." unique_id=964675048]
-position = Vector2(3096, -248)
-script = ExtResource("9_rsq5u")
-speed = 1.0
-idle_time_midpath = 0.5
-
-[node name="PlatformPath" type="Path2D" parent="MovingPlatform2" unique_id=1154119806]
-scale = Vector2(1.125, 3)
-curve = SubResource("Curve2D_a7ub4")
-
-[node name="PlatformPathFollow" type="PathFollow2D" parent="MovingPlatform2/PlatformPath" unique_id=1978502249]
-position = Vector2(253.4851, 7.0905304)
-rotation = -0.3456946
-rotates = false
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="MovingPlatform2/PlatformPath/PlatformPathFollow" unique_id=1431394261]
-remote_path = NodePath("../../../PlatformBody")
-update_rotation = false
-update_scale = false
-
-[node name="PlatformBody" type="AnimatableBody2D" parent="MovingPlatform2" unique_id=1414549814]
-position = Vector2(285.17065, 21.271591)
-
-[node name="PlatformCollision" type="CollisionShape2D" parent="MovingPlatform2/PlatformBody" unique_id=1339444133]
-position = Vector2(195, 51)
-shape = SubResource("RectangleShape2D_en3ub")
-
-[node name="TriggerArea" type="Area2D" parent="MovingPlatform2/PlatformBody" unique_id=185581022]
-
-[node name="TriggerCollision" type="CollisionShape2D" parent="MovingPlatform2/PlatformBody/TriggerArea" unique_id=957223010]
-position = Vector2(190, -3.8857956)
-shape = SubResource("RectangleShape2D_6hnjv")
-
 [node name="CoinPickup" parent="." unique_id=488724526 instance=ExtResource("10_a7ub4")]
-position = Vector2(660, 183)
+position = Vector2(658, 166)
 
 [node name="BasicEnnemy2" parent="." unique_id=1010090589 instance=ExtResource("6_7s6sr")]
 position = Vector2(-607, 342)
 
 [node name="SquarePlatform16" parent="." unique_id=1847896861 instance=ExtResource("8_s5y6n")]
 position = Vector2(-327, 356)
-
-[connection signal="body_entered" from="MovingPlatform/PlatformBody/TriggerArea" to="MovingPlatform" method="_on_trigger_area_body_entered"]
-[connection signal="body_exited" from="MovingPlatform/PlatformBody/TriggerArea" to="MovingPlatform" method="_on_trigger_area_body_exited"]
-[connection signal="body_entered" from="MovingPlatform2/PlatformBody/TriggerArea" to="MovingPlatform2" method="_on_trigger_area_body_entered"]
-[connection signal="body_exited" from="MovingPlatform2/PlatformBody/TriggerArea" to="MovingPlatform2" method="_on_trigger_area_body_exited"]

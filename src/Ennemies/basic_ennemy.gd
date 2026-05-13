@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		
 func _process(delta: float) -> void :
 	if is_dead && anim.animation_finished:
-		queue_free()
+		pass
 	
 	
 

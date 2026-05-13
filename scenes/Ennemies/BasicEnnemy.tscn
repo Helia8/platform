@@ -3,18 +3,78 @@
 [ext_resource type="Script" uid="uid://c5hh4sj4i15iv" path="res://src/Ennemies/basic_ennemy.gd" id="1_ud4je"]
 [ext_resource type="Texture2D" uid="uid://b3ts2hu1vofjw" path="res://assets/anims/enemies/enemy_ball1.png" id="2_06wfx"]
 [ext_resource type="Texture2D" uid="uid://chjvhong35hxk" path="res://assets/anims/enemies/enemy_ball2.png" id="3_eo7p3"]
+[ext_resource type="Texture2D" uid="uid://dx7bepqwbljcl" path="res://assets/anims/enemies/enemy_ball_death1.png" id="3_pcp3a"]
 [ext_resource type="Texture2D" uid="uid://dwx4ch3wgg16c" path="res://assets/anims/enemies/enemy_ball3.png" id="4_ckgsn"]
+[ext_resource type="Texture2D" uid="uid://k8ilyfkyxcjn" path="res://assets/anims/enemies/enemy_ball_death2.png" id="4_p20ih"]
 [ext_resource type="Texture2D" uid="uid://bukbrfbbhr2bt" path="res://assets/anims/enemies/enemy_ball4.png" id="5_2x6xn"]
+[ext_resource type="Texture2D" uid="uid://dc4gksgcwa45a" path="res://assets/anims/enemies/enemy_ball_death3.png" id="5_jhvti"]
+[ext_resource type="Texture2D" uid="uid://ima4v0bm5tdy" path="res://assets/anims/enemies/enemy_ball_death4.png" id="6_05gtc"]
 [ext_resource type="Texture2D" uid="uid://ki3o2sob4s3c" path="res://assets/anims/enemies/enemy_ball5.png" id="6_xylyd"]
 [ext_resource type="Texture2D" uid="uid://bq2bj6cmfre4s" path="res://assets/anims/enemies/enemy_ball6.png" id="7_i6ayt"]
+[ext_resource type="Texture2D" uid="uid://dflf5yohbusdm" path="res://assets/anims/enemies/enemy_ball_death5.png" id="7_rer4v"]
 [ext_resource type="Texture2D" uid="uid://sk44wtnnmsfi" path="res://assets/anims/enemies/enemy_ball7.png" id="8_pw5n2"]
+[ext_resource type="Texture2D" uid="uid://dligq7rc682wa" path="res://assets/anims/enemies/enemy_ball_death6.png" id="8_rwhva"]
+[ext_resource type="Texture2D" uid="uid://by16uixcrtap7" path="res://assets/anims/enemies/enemy_ball_death7.png" id="9_8x437"]
 [ext_resource type="Texture2D" uid="uid://fxgff0k1tgws" path="res://assets/anims/enemies/enemy_ball8.png" id="9_mcof8"]
+[ext_resource type="Texture2D" uid="uid://c5tohyeqknlea" path="res://assets/anims/enemies/enemy_ball_death8.png" id="10_nnew7"]
+[ext_resource type="Texture2D" uid="uid://byhvpxsl6ncgv" path="res://assets/anims/enemies/enemy_ball_death9.png" id="11_b8o25"]
+[ext_resource type="Texture2D" uid="uid://cir1h5u20btmr" path="res://assets/anims/enemies/enemy_ball_death10.png" id="12_yjdlx"]
+[ext_resource type="Texture2D" uid="uid://q355j7r73i27" path="res://assets/anims/enemies/enemy_ball_death11.png" id="13_mpq4a"]
+[ext_resource type="Texture2D" uid="uid://c3ndrt4gc1v4c" path="res://assets/anims/enemies/enemy_ball_death12.png" id="14_y3maw"]
+[ext_resource type="Texture2D" uid="uid://f17wyuygm0de" path="res://assets/anims/enemies/enemy_ball_death13.png" id="15_0isgx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ud4je"]
 radius = 119.0042
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4uoob"]
 animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("3_pcp3a")
+}, {
+"duration": 0.3,
+"texture": ExtResource("4_p20ih")
+}, {
+"duration": 0.3,
+"texture": ExtResource("5_jhvti")
+}, {
+"duration": 0.3,
+"texture": ExtResource("6_05gtc")
+}, {
+"duration": 0.3,
+"texture": ExtResource("7_rer4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rwhva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8x437")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rwhva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nnew7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_b8o25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yjdlx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_mpq4a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_y3maw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0isgx")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_06wfx")
@@ -64,9 +124,9 @@ position = Vector2(-1, 2)
 texture = ExtResource("2_06wfx")
 
 [node name="EnemyAnim" type="AnimatedSprite2D" parent="EnnemyArea" unique_id=1962338253]
+position = Vector2(0, 25)
 sprite_frames = SubResource("SpriteFrames_4uoob")
-animation = &"walk"
-frame_progress = 0.73899174
+animation = &"death"
 
 [node name="EnnemyCollision" type="CollisionShape2D" parent="." unique_id=2092200608]
 shape = SubResource("CircleShape2D_06wfx")

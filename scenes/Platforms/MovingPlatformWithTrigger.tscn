@@ -11,15 +11,16 @@ _data = {
 point_count = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_en3ub"]
-size = Vector2(281.32925, 59.72841)
+size = Vector2(261.32922, 65.72841)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hnjv"]
-size = Vector2(240, 8.771591)
+size = Vector2(226, 8.771591)
 
 [node name="MovingPlatformWithTrigger" type="Node2D" unique_id=633624828]
 script = ExtResource("1_qckev")
 
 [node name="PlatformPath" type="Path2D" parent="." unique_id=1409864760]
+position = Vector2(-285.17075, -18)
 scale = Vector2(1.125, 3)
 curve = SubResource("Curve2D_en3ub")
 
@@ -34,21 +35,20 @@ update_rotation = false
 update_scale = false
 
 [node name="PlatformBody" type="AnimatableBody2D" parent="." unique_id=748276631]
-position = Vector2(285.17075, 21.271591)
+position = Vector2(0, 3.2715912)
 
 [node name="PlatformCollision" type="CollisionShape2D" parent="PlatformBody" unique_id=1245673624]
-position = Vector2(141.16464, 29.864204)
+position = Vector2(131.16464, 32.864204)
 shape = SubResource("RectangleShape2D_en3ub")
 
 [node name="TriggerArea" type="Area2D" parent="PlatformBody" unique_id=1117030317]
 
 [node name="TriggerCollision" type="CollisionShape2D" parent="PlatformBody/TriggerArea" unique_id=248386789]
-position = Vector2(139.82925, -3.8857956)
+position = Vector2(132.82925, -3.8857956)
 shape = SubResource("RectangleShape2D_6hnjv")
 
-[node name="MovingPlatform" type="Sprite2D" parent="PlatformBody" unique_id=1757147862]
-position = Vector2(141.45425, 29.72841)
-scale = Vector2(1.9274192, 1.0538461)
+[node name="MovingPlatform" type="Sprite2D" parent="PlatformBody" unique_id=1492024619]
+position = Vector2(130.82925, 32.72841)
 texture = ExtResource("2_vy0lw")
 
 [connection signal="body_entered" from="PlatformBody/TriggerArea" to="." method="_on_trigger_area_body_entered"]

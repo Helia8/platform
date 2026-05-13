@@ -37,7 +37,7 @@ script = ExtResource("1_1b5st")
 [node name="PickupCollision" type="CollisionShape2D" parent="CoinArea" unique_id=191844623]
 shape = SubResource("CircleShape2D_goyns")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CoinArea" unique_id=437787391]
+[node name="CoinAnim" type="AnimatedSprite2D" parent="." unique_id=437787391]
 sprite_frames = SubResource("SpriteFrames_m1t1i")
 animation = &"idle"
 autoplay = "idle"

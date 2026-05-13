@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8cpfmdlixv6n"
-path="res://.godot/imported/moving_platform_endpoint-export.png-f34e4dc609c20e9b0d1271e59a4b5867.ctex"
+uid="uid://ihb80xuso3rh"
+path="res://.godot/imported/moving_platform_endpoint.png-0d389867d74ca02ccd2453f2387ee75a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/moving_platform_endpoint-export.png"
-dest_files=["res://.godot/imported/moving_platform_endpoint-export.png-f34e4dc609c20e9b0d1271e59a4b5867.ctex"]
+source_file="res://assets/moving_platform_endpoint.png"
+dest_files=["res://.godot/imported/moving_platform_endpoint.png-0d389867d74ca02ccd2453f2387ee75a.ctex"]
 
 [params]
 
