@@ -125,9 +125,9 @@ position = Vector2(-1, 2)
 texture = ExtResource("2_06wfx")
 
 [node name="EnemyAnim" type="AnimatedSprite2D" parent="EnnemyArea" unique_id=1962338253]
-position = Vector2(0, 5)
+position = Vector2(-1, 5)
 sprite_frames = SubResource("SpriteFrames_4uoob")
-animation = &"death"
+animation = &"walk"
 
 [node name="EnnemyCollision" type="CollisionShape2D" parent="." unique_id=2092200608]
 shape = SubResource("CircleShape2D_06wfx")

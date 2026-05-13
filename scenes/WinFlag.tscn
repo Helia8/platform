@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://y4l43eaevqbb"]
+[gd_scene format=3 uid="uid://e0qg8ljkihcb"]
 
 [ext_resource type="Script" uid="uid://b3uw4cf1lu7rv" path="res://src/win_flag.gd" id="1_aedk0"]
 [ext_resource type="Texture2D" uid="uid://dcoqjxr2pillu" path="res://assets/anims/obj/win_flag1.png" id="2_an17u"]
@@ -29,13 +29,14 @@ animations = [{
 script = ExtResource("1_aedk0")
 
 [node name="WinArea" type="Area2D" parent="." unique_id=1897347660]
+position = Vector2(31, -316)
 
 [node name="WinCollision" type="CollisionShape2D" parent="WinArea" unique_id=107922015]
 position = Vector2(11.5, 96)
 shape = SubResource("RectangleShape2D_45lnh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WinArea" unique_id=2081520585]
-position = Vector2(-44, 92)
+position = Vector2(-11, 94)
 sprite_frames = SubResource("SpriteFrames_k30lu")
 animation = &"idle"
 autoplay = "idle"
