@@ -7,7 +7,10 @@ const JUMP_VELOCITY = -700.0
 @onready var deathScreen: Node2D = $DeathScreen
 @onready var anim: AnimatedSprite2D = $PlayerAnim
 @onready var playerSprite: Sprite2D = $Player
+var running = true
 func _physics_process(delta: float) -> void:
+	if not running:
+		return
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -38,7 +41,10 @@ func _update_animation() -> void:
 		anim.play("idle")
 
 func _process(delta: float) -> void:
+	if not running:
+		return
 	if hp <= 0:
+		running = false
 		return
 		queue_free()
 
@@ -51,6 +57,7 @@ func hit() -> void:
 		
 
 func win() -> void:
+	running = false
 	winScreen.visible = true
 	winScreen.start()
 	
