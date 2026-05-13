@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -700.0
 @onready var deathScreen: Node2D = $DeathScreen
 @onready var anim: AnimatedSprite2D = $PlayerAnim
 @onready var playerSprite: Sprite2D = $Player
+var iseconds: float = 0
 var running = true
 var platVel: Vector2 = Vector2.ZERO
 func _physics_process(delta: float) -> void:
@@ -44,6 +45,10 @@ func _update_animation() -> void:
 		anim.play("idle")
 
 func _process(delta: float) -> void:
+	if iseconds > 0:
+		iseconds -= delta
+	else:
+		iseconds = 0
 	if not running:
 		return
 	if hp <= 0:
@@ -52,6 +57,8 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func hit() -> void:
+	if (iseconds > 0):
+		return
 	hp -= 1
 	print("Player hit!")
 	if (hp <= 0):
@@ -66,3 +73,6 @@ func win() -> void:
 	
 func pickup_coin():
 	print("picked up coin")
+
+func add_iseconds(nb :float):
+	iseconds += nb;

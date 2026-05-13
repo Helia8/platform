@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://fxgff0k1tgws" path="res://assets/anims/enemies/enemy_ball8.png" id="9_mcof8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ud4je"]
-radius = 143.03146
+radius = 119.0042
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4uoob"]
 animations = [{
@@ -48,6 +48,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_06wfx"]
 radius = 135.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06wfx"]
+size = Vector2(205, 56)
+
 [node name="BasicEnnemy" type="CharacterBody2D" unique_id=1010090589]
 script = ExtResource("1_ud4je")
 
@@ -68,4 +71,11 @@ frame_progress = 0.73899174
 [node name="EnnemyCollision" type="CollisionShape2D" parent="." unique_id=2092200608]
 shape = SubResource("CircleShape2D_06wfx")
 
+[node name="EnnemyHurtbox" type="Area2D" parent="." unique_id=1072736950]
+
+[node name="HurtboxCollision" type="CollisionShape2D" parent="EnnemyHurtbox" unique_id=938179199]
+position = Vector2(2.5, -117)
+shape = SubResource("RectangleShape2D_06wfx")
+
 [connection signal="body_entered" from="EnnemyArea" to="." method="_on_ennemy_area_body_entered"]
+[connection signal="body_entered" from="EnnemyHurtbox" to="." method="_on_ennemy_hurtbox_body_entered"]

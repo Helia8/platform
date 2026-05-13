@@ -22,8 +22,8 @@ func _update_animation() -> void:
 	anim.play("walk")
 	
 func random_wander():
-		wander_timer = 0
-		dir = randi() % 2
+	wander_timer = 0
+	dir = randi() % 2
 		
 		
 func _physics_process(delta: float) -> void:
@@ -41,3 +41,10 @@ func _physics_process(delta: float) -> void:
 		
 	
 	
+
+
+func _on_ennemy_hurtbox_body_entered(body: Node2D) -> void:
+	if (body.is_in_group("player")):
+		body.add_iseconds(1)
+		queue_free()
+pass # Replace with function body.

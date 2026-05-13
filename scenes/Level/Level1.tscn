@@ -257,6 +257,12 @@ shape = SubResource("RectangleShape2D_6hnjv")
 [node name="CoinPickup" parent="." unique_id=488724526 instance=ExtResource("10_a7ub4")]
 position = Vector2(660, 183)
 
+[node name="BasicEnnemy2" parent="." unique_id=1010090589 instance=ExtResource("6_7s6sr")]
+position = Vector2(-607, 342)
+
+[node name="SquarePlatform16" parent="." unique_id=1847896861 instance=ExtResource("8_s5y6n")]
+position = Vector2(-327, 356)
+
 [connection signal="body_entered" from="MovingPlatform/PlatformBody/TriggerArea" to="MovingPlatform" method="_on_trigger_area_body_entered"]
 [connection signal="body_exited" from="MovingPlatform/PlatformBody/TriggerArea" to="MovingPlatform" method="_on_trigger_area_body_exited"]
 [connection signal="body_entered" from="MovingPlatform2/PlatformBody/TriggerArea" to="MovingPlatform2" method="_on_trigger_area_body_entered"]

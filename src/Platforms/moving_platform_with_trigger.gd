@@ -12,7 +12,6 @@ var player_left = false
 func _process(delta: float):
 	time_since_left += delta
 	if (player_left && time_since_left > idle_time_midpath && not go_back):
-		print("go back")
 		go_back = true
 		pass
 	pass
@@ -35,9 +34,7 @@ func _physics_process(delta: float) -> void:
 	pass
 	
 func _on_trigger_area_body_entered(body: Node2D) -> void:
-	print("dosd")
 	if (body.is_in_group("player")):
-		print("moving")
 		go_back = false
 		player_left = false
 		moving = true
@@ -46,7 +43,6 @@ func _on_trigger_area_body_entered(body: Node2D) -> void:
 
 func _on_trigger_area_body_exited(body: Node2D) -> void:
 	if (body.is_in_group("player")):
-		print("player left")
 		player_left = true
 		time_since_left = 0
 	pass # Replace with function body.
