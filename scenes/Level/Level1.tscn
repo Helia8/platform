@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dillxlklk13ia" path="res://scenes/Ennemies/BasicEnnemy.tscn" id="6_7s6sr"]
 [ext_resource type="PackedScene" uid="uid://bfg8snu3sq651" path="res://scenes/Platforms/BasicPlatform.tscn" id="7_4esi6"]
 [ext_resource type="PackedScene" uid="uid://lgtdme4tg6sh" path="res://scenes/Platforms/SquarePlatform.tscn" id="8_s5y6n"]
-[ext_resource type="PackedScene" uid="uid://e0qg8ljkihcb" path="res://scenes/WinFlag.tscn" id="9_rsq5u"]
+[ext_resource type="PackedScene" uid="uid://y4l43eaevqbb" path="res://scenes/WinFlag.tscn" id="9_rsq5u"]
 [ext_resource type="Script" uid="uid://dwvxqjs5w3a1u" path="res://src/Platforms/moving_platform_with_trigger.gd" id="10_6ch66"]
 [ext_resource type="PackedScene" uid="uid://c65r76r3p4o1" path="res://scenes/Pickups/CoinPickup.tscn" id="10_a7ub4"]
 [ext_resource type="Texture2D" uid="uid://dlm7ksv05yxor" path="res://assets/moving_platform.png" id="11_2vrk0"]
@@ -43,8 +43,12 @@ texture = ExtResource("1_w0kt7")
 position = Vector2(0, 102)
 shape = SubResource("RectangleShape2D_p0hel")
 
+[node name="GroundCollision2" type="CollisionShape2D" parent="Ground/GroundBody" unique_id=2085121211]
+position = Vector2(-18, 1213)
+shape = SubResource("RectangleShape2D_p0hel")
+
 [node name="Player" parent="." unique_id=780849214 instance=ExtResource("2_h32uy")]
-position = Vector2(212, 375)
+position = Vector2(-53, 1366)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=578441604]
 zoom = Vector2(0.6, 0.6)
@@ -223,6 +227,12 @@ shape = SubResource("RectangleShape2D_6hnjv")
 [node name="MovingPlatform" type="Sprite2D" parent="MovingPlatformWithTrigger/PlatformBody" unique_id=1492024619]
 position = Vector2(130.82925, 32.72841)
 texture = ExtResource("11_2vrk0")
+
+[node name="SquarePlatform17" parent="." unique_id=1943975772 instance=ExtResource("8_s5y6n")]
+position = Vector2(294, 1243)
+
+[node name="SquarePlatform18" parent="." unique_id=1501789860 instance=ExtResource("8_s5y6n")]
+position = Vector2(145, 1364)
 
 [connection signal="body_entered" from="MovingPlatformWithTrigger/PlatformBody/TriggerArea" to="MovingPlatformWithTrigger" method="_on_trigger_area_body_entered"]
 [connection signal="body_exited" from="MovingPlatformWithTrigger/PlatformBody/TriggerArea" to="MovingPlatformWithTrigger" method="_on_trigger_area_body_exited"]
