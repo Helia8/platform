@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 const SPEED = 1100.0
 const JUMP_VELOCITY = -950.0
+@export var DASH_SPEED_MULTIPLIER = 1.5
 @export var hp: int = 1
-@export var dash_duration: float = 0.20
+@export var dash_duration: float = 0.10
 @export var dash_length: float = 1.0
 @export var jump_hold_duration: float = 0.24
 @export var jump_hold_gravity_multiplier: float = 0.65
@@ -21,6 +22,7 @@ var dash_time_left: float = 0.0
 var dash_velocity: Vector2 = Vector2.ZERO
 var dash_input_velocity: Vector2 = Vector2.ZERO
 var jump_hold_time_left: float = 0.0
+var air_dash_used: bool = false
 
 func _apply_vertical_movement(delta: float) -> void:
 	if is_on_floor() and velocity.y >= 0.0:
@@ -44,8 +46,18 @@ func _physics_process(delta: float) -> void:
 		if dash_time_left <= 0.0:
 			is_dashing = false
 			dash_time_left = 0.0
+			velocity = dash_velocity * 0.5
 			dash_velocity = Vector2.ZERO
 			dash_input_velocity = Vector2.ZERO
+	if is_dashing:
+		velocity = dash_velocity
+		move_and_slide()
+		if is_on_floor():
+			air_dash_used = false
+		platVel = get_platform_velocity()
+		_update_animation()
+		return
+
 	_apply_vertical_movement(delta)
 
 	if (Input.is_action_just_pressed("jump") and is_on_floor()) or bounce:
@@ -69,21 +81,25 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED * 3.5 * delta)
 
-	if (Input.is_action_just_pressed("dash")):
+	if Input.is_action_just_pressed("dash") and (is_on_floor() or not air_dash_used):
 		var dash_direction := Input.get_vector("left", "right", "up", "down")
 		if dash_direction == Vector2.ZERO:
 			dash_direction.x = 1.0 if anim.flip_h else -1.0
 		dash_direction = dash_direction.normalized()
 		is_dashing = true
 		dash_time_left = dash_duration
-		dash_velocity = dash_direction * dash_length * SPEED
+		dash_velocity = dash_direction * dash_length * SPEED * DASH_SPEED_MULTIPLIER
 		dash_input_velocity = Vector2.ZERO
 		velocity = dash_velocity
+		if not is_on_floor():
+			air_dash_used = true
 	elif is_dashing:
 		velocity = dash_velocity
 	else:
 		dash_input_velocity = Vector2.ZERO
 	move_and_slide()
+	if is_on_floor():
+		air_dash_used = false
 	platVel = get_platform_velocity()
 	_update_animation()
 
