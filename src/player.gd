@@ -44,6 +44,11 @@ func _apply_vertical_movement(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if not running:
 		return
+	if dash_stop_time_left > 0.0:
+		dash_stop_time_left -= delta
+		if dash_stop_time_left <= 0.0:
+			dash_stop_time_left = 0.0
+			dash_stop_animation = &""
 	if is_dashing:
 		dash_time_left -= delta
 		if dash_time_left <= 0.0:
@@ -122,7 +127,8 @@ func _update_animation() -> void:
 		return
 	if dash_stop_time_left > 0.0 and dash_stop_animation != &"":
 		playerSprite.hide()
-		anim.play(dash_stop_animation)
+		if anim.animation != dash_stop_animation:
+			anim.play(dash_stop_animation)
 		return
 	if not is_on_floor():
 		playerSprite.hide()

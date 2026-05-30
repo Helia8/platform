@@ -190,7 +190,7 @@ shape = SubResource("RectangleShape2D_5q5h1")
 [node name="PlayerAnim" type="AnimatedSprite2D" parent="." unique_id=1195486849]
 position = Vector2(-1, -13)
 sprite_frames = SubResource("SpriteFrames_khinc")
-animation = &"dash_up_stopping"
+animation = &"idle"
 
 [node name="DeathScreen" parent="." unique_id=2039767255 instance=ExtResource("15_0rnld")]
 visible = false
