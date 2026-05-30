@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 1100.0
 const JUMP_VELOCITY = -950.0
 @export var DASH_SPEED_MULTIPLIER = 1.5
+const HORIZONTAL_DASH_MULTIPLIER = 1.35
 @export var hp: int = 1
 @export var dash_duration: float = 0.10
 @export var dash_length: float = 1.0
@@ -86,10 +87,14 @@ func _physics_process(delta: float) -> void:
 		if dash_direction == Vector2.ZERO:
 			dash_direction.x = 1.0 if anim.flip_h else -1.0
 		dash_direction = dash_direction.normalized()
+		var dash_multiplier: float = DASH_SPEED_MULTIPLIER
+		if dash_direction.y == 0.0:
+			dash_multiplier *= HORIZONTAL_DASH_MULTIPLIER
 		is_dashing = true
 		dash_time_left = dash_duration
-		dash_velocity = dash_direction * dash_length * SPEED * DASH_SPEED_MULTIPLIER
+		dash_velocity = dash_direction * dash_length * SPEED * dash_multiplier
 		dash_input_velocity = Vector2.ZERO
+		velocity = Vector2.ZERO
 		velocity = dash_velocity
 		if not is_on_floor():
 			air_dash_used = true
