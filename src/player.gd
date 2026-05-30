@@ -22,6 +22,8 @@ var is_dashing = false
 var dash_time_left: float = 0.0
 var dash_velocity: Vector2 = Vector2.ZERO
 var dash_input_velocity: Vector2 = Vector2.ZERO
+var dash_stop_animation: StringName = &""
+var dash_stop_time_left: float = 0.0
 var jump_hold_time_left: float = 0.0
 var air_dash_used: bool = false
 
@@ -45,9 +47,12 @@ func _physics_process(delta: float) -> void:
 	if is_dashing:
 		dash_time_left -= delta
 		if dash_time_left <= 0.0:
+			var ended_dash_velocity := dash_velocity
 			is_dashing = false
 			dash_time_left = 0.0
-			velocity = dash_velocity * 0.5
+			velocity = ended_dash_velocity * 0.5
+			dash_stop_animation = _get_dash_stop_animation(ended_dash_velocity)
+			dash_stop_time_left = _get_dash_stop_duration(dash_stop_animation)
 			dash_velocity = Vector2.ZERO
 			dash_input_velocity = Vector2.ZERO
 	if is_dashing:
@@ -91,6 +96,8 @@ func _physics_process(delta: float) -> void:
 		if dash_direction.y == 0.0:
 			dash_multiplier *= HORIZONTAL_DASH_MULTIPLIER
 		is_dashing = true
+		dash_stop_animation = &""
+		dash_stop_time_left = 0.0
 		dash_time_left = dash_duration
 		dash_velocity = dash_direction * dash_length * SPEED * dash_multiplier
 		dash_input_velocity = Vector2.ZERO
@@ -109,6 +116,14 @@ func _physics_process(delta: float) -> void:
 	_update_animation()
 
 func _update_animation() -> void:
+	if is_dashing:
+		playerSprite.hide()
+		anim.play(_get_dash_animation())
+		return
+	if dash_stop_time_left > 0.0 and dash_stop_animation != &"":
+		playerSprite.hide()
+		anim.play(dash_stop_animation)
+		return
 	if not is_on_floor():
 		playerSprite.hide()
 		if (velocity.y < 0):
@@ -120,6 +135,31 @@ func _update_animation() -> void:
 		anim.play("walk")
 	else:
 		anim.play("idle")
+
+func _get_dash_animation() -> StringName:
+	if dash_velocity.y < 0.0:
+		if dash_velocity.x == 0.0:
+			return &"dash_up"
+		return &"dash_diagonal_up"
+	if dash_velocity.y > 0.0:
+		if dash_velocity.x == 0.0:
+			return &"dash_down"
+		return &"dash_diagonal_down"
+	return &"dash_side"
+
+func _get_dash_stop_animation(dash_vector: Vector2) -> StringName:
+	if dash_vector.y < 0.0:
+		return &"dash_up_stopping"
+	if dash_vector.y > 0.0:
+		return &"dash_down_stopping"
+	return &""
+
+func _get_dash_stop_duration(stop_animation: StringName) -> float:
+	if stop_animation == &"dash_down_stopping":
+		return 0.30
+	if stop_animation == &"dash_up_stopping":
+		return 0.14
+	return 0.0
 
 func _process(delta: float) -> void:
 	if iseconds > 0:
