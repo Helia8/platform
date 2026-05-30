@@ -24,6 +24,8 @@ var dash_velocity: Vector2 = Vector2.ZERO
 var dash_input_velocity: Vector2 = Vector2.ZERO
 var dash_stop_animation: StringName = &""
 var dash_stop_time_left: float = 0.0
+var dash_stop_waiting_for_ground: bool = false
+var dash_stop_source_velocity: Vector2 = Vector2.ZERO
 var jump_hold_time_left: float = 0.0
 var air_dash_used: bool = false
 
@@ -44,6 +46,9 @@ func _apply_vertical_movement(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if not running:
 		return
+	if dash_stop_waiting_for_ground and is_on_floor():
+		dash_stop_waiting_for_ground = false
+		dash_stop_time_left = _get_dash_stop_duration(_get_dash_stop_animation(dash_stop_source_velocity))
 	if dash_stop_time_left > 0.0:
 		dash_stop_time_left -= delta
 		if dash_stop_time_left <= 0.0:
@@ -56,8 +61,14 @@ func _physics_process(delta: float) -> void:
 			is_dashing = false
 			dash_time_left = 0.0
 			velocity = ended_dash_velocity * 0.5
+			dash_stop_source_velocity = ended_dash_velocity
 			dash_stop_animation = _get_dash_stop_animation(ended_dash_velocity)
-			dash_stop_time_left = _get_dash_stop_duration(dash_stop_animation)
+			if ended_dash_velocity.y > 0.0:
+				dash_stop_waiting_for_ground = true
+				dash_stop_time_left = 0.0
+			else:
+				dash_stop_waiting_for_ground = false
+				dash_stop_time_left = _get_dash_stop_duration(dash_stop_animation)
 			dash_velocity = Vector2.ZERO
 			dash_input_velocity = Vector2.ZERO
 	if is_dashing:
@@ -103,6 +114,8 @@ func _physics_process(delta: float) -> void:
 		is_dashing = true
 		dash_stop_animation = &""
 		dash_stop_time_left = 0.0
+		dash_stop_waiting_for_ground = false
+		dash_stop_source_velocity = Vector2.ZERO
 		dash_time_left = dash_duration
 		dash_velocity = dash_direction * dash_length * SPEED * dash_multiplier
 		dash_input_velocity = Vector2.ZERO
@@ -125,6 +138,10 @@ func _update_animation() -> void:
 		playerSprite.hide()
 		anim.play(_get_dash_animation())
 		return
+	if dash_stop_waiting_for_ground:
+		playerSprite.hide()
+		anim.play(_get_dash_animation_for(dash_stop_source_velocity))
+		return
 	if dash_stop_time_left > 0.0 and dash_stop_animation != &"":
 		playerSprite.hide()
 		if anim.animation != dash_stop_animation:
@@ -143,12 +160,15 @@ func _update_animation() -> void:
 		anim.play("idle")
 
 func _get_dash_animation() -> StringName:
-	if dash_velocity.y < 0.0:
-		if dash_velocity.x == 0.0:
+	return _get_dash_animation_for(dash_velocity)
+
+func _get_dash_animation_for(dash_vector: Vector2) -> StringName:
+	if dash_vector.y < 0.0:
+		if dash_vector.x == 0.0:
 			return &"dash_up"
 		return &"dash_diagonal_up"
-	if dash_velocity.y > 0.0:
-		if dash_velocity.x == 0.0:
+	if dash_vector.y > 0.0:
+		if dash_vector.x == 0.0:
 			return &"dash_down"
 		return &"dash_diagonal_down"
 	return &"dash_side"
